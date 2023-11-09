@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import DatingCard from "react-tinder-card";
 import "./DatingCards.css";
+import axios from './axios'
 
 const DatingCards = () => {
-  const [people, setPeople] = useState([
+  const [people, setPeople] = useState([])
+  useEffect(() => {
+    async function fetchData() {
+    const req = await axios.get("/dating/cards")
+    setPeople(req.data)
+    }
+    fetchData()
+    },
     {
       name: "Random Guy",
       imgUrl:
@@ -24,11 +32,11 @@ const DatingCards = () => {
       imgUrl:
         "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     },
-  ]);
+    [])
 
   const swiped = (direction, nameToDelete) => {
-    console.log("Receiving " + nameToDelete);
-  };
+    console.log("receiving " + nameToDelete)
+    }
 
   const outOfFrame = (name) => {
     console.log(name + " left the screen!!");
