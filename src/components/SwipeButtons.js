@@ -17,11 +17,12 @@ const SwipeButtons = () => {
   },[])*/
   //Aqui va la funcion que manejara el evento de cuando presionamos un IconButton
   const rayoPress = () => {
-    console.log("Click")
+  setRayos(a => a+1) 
   };
 
   return (
     <div className="swipeButtons">
+      <p>{rayos}</p>
       <IconButton className="swipeButtons__repeat">
         <ReplayIcon fontSize="large" />
       </IconButton>
