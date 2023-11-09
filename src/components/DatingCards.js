@@ -17,8 +17,9 @@ const DatingCards = () => {
     console.log("receiving " + nameToDelete)
     }
 
-  const outOfFrame = (name) => {
+  const outOfFrame = (name,args) => {
     console.log(name + " left the screen!!");
+    console.log("args",args)
   };
 
   return (
@@ -30,7 +31,7 @@ const DatingCards = () => {
             key={person.name}
             preventSwipe={["up", "down"]}
             onSwipe={(dir) => swiped(dir, person.name)}
-            onCardLeftScreen={() => outOfFrame(person.name)}
+            onCardLeftScreen={(args) => outOfFrame(person.name,args)}
           >
             <div
               style={{ backgroundImage: `url(${person.imgUrl})` }}

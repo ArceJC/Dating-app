@@ -7,6 +7,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import IconButton from "@material-ui/core/IconButton";
 const SwipeButtons = () => {
+  //Aqui va la funcion que manejara el evento de cuando presionamos un IconButton
   return (
     <div className="swipeButtons">
       <IconButton className="swipeButtons__repeat">
@@ -21,7 +22,9 @@ const SwipeButtons = () => {
       <IconButton className="swipeButtons__right">
         <FavoriteIcon fontSize="large" />
       </IconButton>
-      <IconButton className="swipeButtons__lightning">
+      <IconButton className="swipeButtons__lightning" onClick={() => {
+    alert('clicked');
+  }}>
         <FlashOnIcon fontSize="large" />
       </IconButton>
     </div>
